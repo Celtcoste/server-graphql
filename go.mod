@@ -1,4 +1,4 @@
-module gitlab.com/fendcer-company/common/golang-modules/server-graphql
+module github.com/Celtcoste/server-graphql
 
 go 1.13
 
