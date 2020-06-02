@@ -2,7 +2,7 @@ package logging
 
 import (
 	"fmt"
-	"gitlab.com/fendcer-company/common/golang-modules/server-graphql/src/file"
+	"github.com/Celtcoste/server-graphql/src/file"
 	"log"
 	"os"
 	"path/filepath"

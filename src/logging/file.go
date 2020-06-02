@@ -2,7 +2,7 @@ package logging
 
 import (
 	"fmt"
-	"gitlab.com/fendcer-company/common/golang-modules/server-graphql/src/setting"
+	"github.com/Celtcoste/server-graphql/src/setting"
 	"time"
 )
 
