@@ -1,7 +1,7 @@
 package uuid
 
 import (
-	"server-graphql/src/postgresql"
+	"github.com/Celtcoste/server-graphql/src/postgresql"
 	"github.com/google/uuid"
 	"log"
 )
