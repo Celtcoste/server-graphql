@@ -1,4 +1,4 @@
-package uud
+package uuid
 
 import (
 	"github.com/Celtcoste/server-graphql/src/postgresql"
