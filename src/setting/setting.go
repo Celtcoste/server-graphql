@@ -33,14 +33,14 @@ var PostgresSetting = &PostgreSQL{}
 
 // Setup initialize the configuration instance
 func Setup() {
-	prodString := "_PROD"
+	prodString := ""
 	if getenvStr("APP_ENV") == "TEST" {
 		err:= godotenv.Overload()
 		if err != nil {
 			log.Fatal("Error loading .env file")
 		}
-		if getenvStr("DB_ENV") != "PROD" {
-			prodString = ""
+		if getenvStr("DB_ENV") == "PROD" {
+			prodString = "_PROD"
 		}
 	}
 
