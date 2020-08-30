@@ -6,8 +6,6 @@ import (
 	"github.com/gin-gonic/gin"
 	_ "github.com/lib/pq"
 	"log"
-	"net"
-	"os"
 )
 
 var PostgresConn *sql.DB
