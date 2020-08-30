@@ -20,10 +20,6 @@ type Transaction interface {
 type TxFn func(Transaction) error
 
 func Setup(host string, port string, user string, password string, databasename string) error {
-	/*if os.Getenv("APP_ENV") == "PROD" {
-		host, port, _ = net.SplitHostPort(host)
-	}*/
-
 	psqlInfo := fmt.Sprintf("host=%s port=%s user=%s "+
 		"password=%s dbname=%s sslmode=disable",
 		host, port, user, password, databasename)
