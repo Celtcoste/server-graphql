@@ -2,7 +2,6 @@ package acl
 
 import (
 	"context"
-	"github.com/Celtcoste/server-graphql/graph"
 	"github.com/Celtcoste/server-graphql/graph/model"
 	"github.com/Celtcoste/server-graphql/src/postgresql"
 	"github.com/gin-gonic/gin"
