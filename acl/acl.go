@@ -27,7 +27,7 @@ func containsApplication(applications []model.Application, app string) bool {
 	return false
 }
 
-func getCurrentUser(ctx context.Context, roles []*model.Role, applications []model.Application) bool {
+func GetCurrentUser(ctx context.Context, roles []*model.Role, applications []model.Application) bool {
 	var ginContext = ctx.Value("GinContextKey").(*gin.Context)
 	var userRole = ginContext.GetHeader("role")
 	var userApp = ginContext.GetHeader("application")
