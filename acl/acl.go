@@ -2,12 +2,12 @@ package acl
 
 import (
 	"context"
-	"log"
-	"strings"
 	"github.com/Celtcoste/server-graphql/graph"
 	"github.com/Celtcoste/server-graphql/graph/model"
-	"github.com/gin-gonic/gin"
 	"github.com/Celtcoste/server-graphql/src/postgresql"
+	"github.com/gin-gonic/gin"
+	"log"
+	"strings"
 )
 
 func containsRole(roles []*model.Role, role string) bool {
