@@ -4,8 +4,8 @@ import (
 	"context"
 	"log"
 	"strings"
-	"server-graphql/graph"
-	"server-graphql/graph/model"
+	"github.com/Celtcoste/server-graphql/graph"
+	"github.com/Celtcoste/server-graphql/graph/model"
 	"github.com/gin-gonic/gin"
 	"github.com/Celtcoste/server-graphql/src/postgresql"
 )
