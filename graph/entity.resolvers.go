@@ -5,7 +5,6 @@ package graph
 
 import (
 	"github.com/Celtcoste/server-graphql/graph/generated"
-	"github.com/Celtcoste/server-graphql/graph/model"
 )
 
 // Entity returns generated.EntityResolver implementation.
