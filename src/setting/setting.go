@@ -33,28 +33,28 @@ var PostgresSetting = &PostgreSQL{}
 
 // Setup initialize the configuration instance
 func Setup() {
-	if getenvStr("APP_ENV") == "TEST" {
+	if GetEnvStr("APP_ENV") == "TEST" {
 		err:= godotenv.Overload()
 		if err != nil {
 			log.Fatal("Error loading .env file")
 		}
 	}
 
-	AppSetting.RuntimeRootPath = getenvStr("RUNTIME_ROOT_PATH")
-	AppSetting.LogSavePath = getenvStr("LOG_SAVE_PATH")
-	AppSetting.LogSaveName = getenvStr("LOG_SAVE_NAME")
-	AppSetting.LogFileExt = getenvStr("LOG_FILE_EXT")
-	AppSetting.TimeFormat = getenvStr("TIME_FORMAT")
-	AppSetting.RunMode = getenvStr("RUN_MODE")
+	AppSetting.RuntimeRootPath = GetEnvStr("RUNTIME_ROOT_PATH")
+	AppSetting.LogSavePath = GetEnvStr("LOG_SAVE_PATH")
+	AppSetting.LogSaveName = GetEnvStr("LOG_SAVE_NAME")
+	AppSetting.LogFileExt = GetEnvStr("LOG_FILE_EXT")
+	AppSetting.TimeFormat = GetEnvStr("TIME_FORMAT")
+	AppSetting.RunMode = GetEnvStr("RUN_MODE")
 
-	PostgresSetting.Host = getenvStr("DB_HOST")
-	PostgresSetting.Port = getenvStr("DB_PORT")
-	PostgresSetting.User = getenvStr("DB_USER")
-	PostgresSetting.Password = getenvStr("DB_PASSWORD")
-	PostgresSetting.DatabaseName = getenvStr("DB_NAME")
+	PostgresSetting.Host = GetEnvStr("DB_HOST")
+	PostgresSetting.Port = GetEnvStr("DB_PORT")
+	PostgresSetting.User = GetEnvStr("DB_USER")
+	PostgresSetting.Password = GetEnvStr("DB_PASSWORD")
+	PostgresSetting.DatabaseName = GetEnvStr("DB_NAME")
 }
 
-func getenvStr(key string) string {
+func GetEnvStr(key string) string {
 	v := os.Getenv(key)
 	if v == "" {
 		log.Fatal("Environment variable %s doesn't exist", key)
@@ -63,7 +63,7 @@ func getenvStr(key string) string {
 }
 
 func getenvInt(key string) int {
-	s := getenvStr(key)
+	s := GetEnvStr(key)
 	v, err := strconv.Atoi(s)
 	if err != nil {
 		log.Fatal(err)
@@ -72,7 +72,7 @@ func getenvInt(key string) int {
 }
 
 func getenvBool(key string) bool {
-	s := getenvStr(key)
+	s := GetEnvStr(key)
 	v, err := strconv.ParseBool(s)
 	if err != nil {
 		log.Fatal(err)
