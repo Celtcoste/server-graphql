@@ -3,7 +3,7 @@ package setting
 import (
 	"github.com/joho/godotenv"
 	"log"
-	"github.com/Celtcoste/server-graphql/src/utils"
+	"github.com/Celtcoste/server-graphql/utils"
 )
 
 type App struct {
