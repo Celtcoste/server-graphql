@@ -3,8 +3,7 @@ package setting
 import (
 	"github.com/joho/godotenv"
 	"log"
-	"os"
-	"strconv"
+	"github.com/Celtcoste/server-graphql/src/utils"
 )
 
 type App struct {
@@ -33,49 +32,23 @@ var PostgresSetting = &PostgreSQL{}
 
 // Setup initialize the configuration instance
 func Setup() {
-	if GetEnvStr("APP_ENV") == "TEST" {
+	if utils.GetEnvStr("APP_ENV") == "TEST" {
 		err:= godotenv.Overload()
 		if err != nil {
 			log.Fatal("Error loading .env file")
 		}
 	}
 
-	AppSetting.RuntimeRootPath = GetEnvStr("RUNTIME_ROOT_PATH")
-	AppSetting.LogSavePath = GetEnvStr("LOG_SAVE_PATH")
-	AppSetting.LogSaveName = GetEnvStr("LOG_SAVE_NAME")
-	AppSetting.LogFileExt = GetEnvStr("LOG_FILE_EXT")
-	AppSetting.TimeFormat = GetEnvStr("TIME_FORMAT")
-	AppSetting.RunMode = GetEnvStr("RUN_MODE")
+	AppSetting.RuntimeRootPath = utils.GetEnvStr("RUNTIME_ROOT_PATH")
+	AppSetting.LogSavePath = utils.GetEnvStr("LOG_SAVE_PATH")
+	AppSetting.LogSaveName = utils.GetEnvStr("LOG_SAVE_NAME")
+	AppSetting.LogFileExt = utils.GetEnvStr("LOG_FILE_EXT")
+	AppSetting.TimeFormat = utils.GetEnvStr("TIME_FORMAT")
+	AppSetting.RunMode = utils.GetEnvStr("RUN_MODE")
 
-	PostgresSetting.Host = GetEnvStr("DB_HOST")
-	PostgresSetting.Port = GetEnvStr("DB_PORT")
-	PostgresSetting.User = GetEnvStr("DB_USER")
-	PostgresSetting.Password = GetEnvStr("DB_PASSWORD")
-	PostgresSetting.DatabaseName = GetEnvStr("DB_NAME")
-}
-
-func GetEnvStr(key string) string {
-	v := os.Getenv(key)
-	if v == "" {
-		log.Fatal("Environment variable %s doesn't exist", key)
-	}
-	return v
-}
-
-func getenvInt(key string) int {
-	s := GetEnvStr(key)
-	v, err := strconv.Atoi(s)
-	if err != nil {
-		log.Fatal(err)
-	}
-	return v
-}
-
-func getenvBool(key string) bool {
-	s := GetEnvStr(key)
-	v, err := strconv.ParseBool(s)
-	if err != nil {
-		log.Fatal(err)
-	}
-	return v
+	PostgresSetting.Host = utils.GetEnvStr("DB_HOST")
+	PostgresSetting.Port = utils.GetEnvStr("DB_PORT")
+	PostgresSetting.User = utils.GetEnvStr("DB_USER")
+	PostgresSetting.Password = utils.GetEnvStr("DB_PASSWORD")
+	PostgresSetting.DatabaseName = utils.GetEnvStr("DB_NAME")
 }
