@@ -9,6 +9,14 @@ import (
 func GetEnvStr(key string) string {
 	v := os.Getenv(key)
 	if v == "" {
+		log.Fatal("Environment variable %s doesn't exist", key)
+	}
+	return v
+}
+
+func CheckEnvStr(key string) string {
+	v := os.Getenv(key)
+	if v == "" {
 		log.Println("Environment variable %s doesn't exist", key)
 	}
 	return v
@@ -27,7 +35,7 @@ func GetEnvBool(key string) bool {
 	s := GetEnvStr(key)
 	v, err := strconv.ParseBool(s)
 	if err != nil {
-		log.Fatal(err)
+		log.Println(err)
 	}
 	return v
 }
