@@ -11,6 +11,7 @@ import (
 	"github.com/Celtcoste/server-graphql/src/middleware"
 	"github.com/Celtcoste/server-graphql/src/postgresql"
 	"github.com/Celtcoste/server-graphql/src/setting"
+	"github.com/Celtcoste/server-graphql/utils"
 	"log"
 	"net/http"
 	"os"
@@ -62,6 +63,10 @@ func Server(graphqlHandler gin.HandlerFunc, playgroundHandler gin.HandlerFunc) {
 
 	r.Use(middleware.GinContextToContextMiddleware())
 	r.POST("/query", graphqlHandler)
+
+	if utils.GetEnvStr("APP_ENV") == "TEST" {
+		r.GET("/query", graphqlHandler)
+	}
 	if setting.AppSetting.RunMode == "debug" {
 		r.GET("/", playgroundHandler)
 	}

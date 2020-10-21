@@ -9,7 +9,7 @@ import (
 func GetEnvStr(key string) string {
 	v := os.Getenv(key)
 	if v == "" {
-		log.Fatal("Environment variable %s doesn't exist", key)
+		log.Println("Environment variable %s doesn't exist", key)
 	}
 	return v
 }
