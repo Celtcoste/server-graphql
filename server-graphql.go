@@ -64,7 +64,7 @@ func Server(graphqlHandler gin.HandlerFunc, playgroundHandler gin.HandlerFunc) {
 	r.Use(middleware.GinContextToContextMiddleware())
 	r.POST("/query", graphqlHandler)
 
-	if utils.GetEnvStr("APP_ENV") == "TEST" {
+	if utils.GetEnvStr("USE_SUBSCRIPTION") == "true" {
 		r.GET("/query", graphqlHandler)
 	}
 	if setting.AppSetting.RunMode == "debug" {
