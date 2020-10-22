@@ -23,6 +23,8 @@ func GinContextFromContext(ctx context.Context) (*gin.Context, error) {
 
 func GinContextToContextMiddleware() gin.HandlerFunc {
 	return func(c *gin.Context) {
+		fmt.Println("test = ", c.Request.Header)
+		fmt.Println("test = ", c.GetHeader("uuid"))
 		ctx := context.WithValue(c.Request.Context(), "GinContextKey", c)
 		c.Request = c.Request.WithContext(ctx)
 		c.Next()
