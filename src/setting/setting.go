@@ -7,14 +7,6 @@ import (
 )
 
 type App struct {
-	PrefixUrl string
-
-	RuntimeRootPath string
-
-	LogSavePath        string
-	LogSaveName        string
-	LogFileExt         string
-	TimeFormat         string
 	RunMode 		   string
 }
 
@@ -39,11 +31,6 @@ func Setup() {
 		}
 	}
 
-	AppSetting.RuntimeRootPath = utils.GetEnvStr("RUNTIME_ROOT_PATH")
-	AppSetting.LogSavePath = utils.GetEnvStr("LOG_SAVE_PATH")
-	AppSetting.LogSaveName = utils.GetEnvStr("LOG_SAVE_NAME")
-	AppSetting.LogFileExt = utils.GetEnvStr("LOG_FILE_EXT")
-	AppSetting.TimeFormat = utils.GetEnvStr("TIME_FORMAT")
 	AppSetting.RunMode = utils.GetEnvStr("RUN_MODE")
 
 	PostgresSetting.Host = utils.GetEnvStr("DB_HOST")
