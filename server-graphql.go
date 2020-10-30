@@ -7,7 +7,6 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/Celtcoste/server-graphql/src/handlers"
 	"github.com/Celtcoste/server-graphql/src/health"
-	"github.com/Celtcoste/server-graphql/src/logging"
 	"github.com/Celtcoste/server-graphql/src/middleware"
 	"github.com/Celtcoste/server-graphql/src/postgresql"
 	"github.com/Celtcoste/server-graphql/src/setting"
@@ -21,7 +20,6 @@ import (
 
 func Init() {
 	setting.Setup()
-	logging.Setup()
 	postgresql.Setup(setting.PostgresSetting.Host, setting.PostgresSetting.Port, setting.PostgresSetting.User,
 		setting.PostgresSetting.Password, setting.PostgresSetting.DatabaseName)
 }
