@@ -60,16 +60,16 @@ func WithTransaction(fn TxFn) (err error) {
 		if p := recover(); p != nil {
 			// a panic occurred, rollback and repanic
 			tx.Rollback()
-			PostgresConn.Close()
+			defer PostgresConn.Close()
 			panic(p)
 		} else if err != nil {
 			// something went wrong, rollback
 			tx.Rollback()
-			PostgresConn.Close()
+			defer PostgresConn.Close()
 		} else {
 			// all good, commit
 			err = tx.Commit()
-			PostgresConn.Close()
+			defer PostgresConn.Close()
 		}
 	}()
 
