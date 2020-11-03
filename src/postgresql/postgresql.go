@@ -70,6 +70,7 @@ func WithTransaction(fn TxFn) (err error) {
 		}
 	}()
 
+	defer PostgresConn.Close()
 	err = fn(tx)
 	return err
 }
